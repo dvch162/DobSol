@@ -1,0 +1,73 @@
+[
+    {
+      "name": "Education",
+      "projects": [
+        {
+          "title": "Project 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "image": "project1.jpg"
+        },
+        {
+          "title": "Project 2",
+          "description": "Praesent ullamcorper aliquam odio, a iaculis nunc tempor in.",
+          "image": "project2.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Beauty",
+      "projects": [  
+        {
+          "title": "Project 3",
+          "description": "Vestibulum fringilla, nisi et placerat rutrum, dolor ex faucibus tellus.",
+          "image": "project3.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Real Estate",
+      "projects": [
+        {
+          "title": "Project 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "image": "project1.jpg"
+        },
+        {
+          "title": "Project 2",
+          "description": "Praesent ullamcorper aliquam odio, a iaculis nunc tempor in.",
+          "image": "project2.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Restaurants",
+      "projects": [
+        {
+          "title": "Project 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "image": "project1.jpg"
+        },
+        {
+          "title": "Project 2",
+          "description": "Praesent ullamcorper aliquam odio, a iaculis nunc tempor in.",
+          "image": "project2.jpg"
+        }
+      ]
+    },
+    {
+      "name": "eCommerce",
+      "projects": [
+        {
+          "title": "Project 1",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "image": "project1.jpg"
+        },
+        {
+          "title": "Project 2",
+          "description": "Praesent ullamcorper aliquam odio, a iaculis nunc tempor in.",
+          "image": "project2.jpg"
+        }
+      ]
+    }
+  ]
+  

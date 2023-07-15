@@ -1,0 +1,27 @@
+{
+  "name": "mw-sol",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-brands-svg-icons": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "eslint": "8.41.0",
+    "eslint-config-next": "^12.0.4",
+    "mysql2": "^3.3.3",
+    "next": "13.4.4",
+    "owl.carousel": "^2.3.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.7"
+  }
+}
