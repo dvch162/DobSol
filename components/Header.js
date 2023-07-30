@@ -49,6 +49,7 @@ export default function Header() {
 
         #container #logo {
       flex-basis: 33.33%; /* Set left column width to 1/3 */
+      font-style: bold;
     }
 
         #container #logo h1 {
@@ -107,7 +108,7 @@ export default function Header() {
       <div id='container' className="container">
         <div id="logo" className="pull-left">
           <h1>
-              Dobrobut<span>Sol</span>
+              Dob<span>Sol</span>
           </h1>
         </div>
 

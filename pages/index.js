@@ -13,8 +13,9 @@ import AboutSection from './AboutSection'
 import Form from './Form'
 import Services from './Services'
 import Testimonials from './Testimonials'
+import TopBar from './TopBar';
 // import ProjectPage from './projects/[project].js'
-// import Footer from '../components/Footer2'
+import Footer from '../components/Footer2'
 
 
 
@@ -22,10 +23,7 @@ export default function Home(props) {
   const projects = props.projects;
   const router = useRouter();
 
-  const handleGoBack = () => {
-    router.back();
-  };
-
+  
   return (
     <div id="__next" className="body">
       <Head>
@@ -37,118 +35,15 @@ export default function Home(props) {
       </Head>
      
      
-      <style jsx>{`
-      .body {
-          background: #fff;
-          color: #444;
-          font-family: "Open Sans", sans-serif;
-        }
-
-      /* Top Bar */
-        #topbar {
-          background: #fff;
-          padding: 10px 0;
-          border-bottom: 1px solid #eee;
-          font-size: 14px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        
-        #topbar .contact-info a {
-          line-height: 1;
-          color: #555;
-        }
-
-        #topbar .contact-info a:hover {
-          color: #50d8af;
-        }
-
-        #topbar .contact-info i {
-          color: #50d8af;
-          padding: 4px;
-        }
-
-        #topbar .contact-info .fa-phone {
-          padding-left: 20px;
-          margin-left: 20px;
-          border-left: 1px solid #e9e9e9;
-        }
-
-        #topbar .social-links a {
-          color: #555;
-          padding: 4px 12px;
-          display: inline-block;
-          line-height: 1px;
-          border-left: 1px solid #e9e9e9;
-        }
-
-        #topbar .social-links a:hover {
-          color: #50d8af;
-        }
-
-        #topbar .social-links a:first-child {
-          border-left: 0;
-        }
-
-      `}</style>
-      
-        <section id="topbar" className="d-none d-lg-block">
-          <div className="container clearfix">
-            <div className="contact-info float-left">
-              <i className="fa fa-envelope-o"></i>{" "}
-              <a href="mailto:contact@example.com">contact@example.com</a>
-              <i className="fa fa-phone"> +1 5589 55488 55</i>
-            </div>
-            <div className="social-links float-right">
-              <a href="#" className="twitter">
-                <i className="fa fa-twitter">tw</i>
-              </a>
-              <a href="#" className="facebook">
-                <i className="fa fa-facebook">fb</i>
-              </a>
-              <a href="#" className="instagram">
-                <i className="fa fa-instagram">inst</i>
-              </a>
-              <a href="#" className="google-plus">
-                <i className="fa fa-google-plus">googl+</i>
-              </a>
-              <a href="#" className="linkedin">
-                <i className="fa fa-linkedin">linkedin</i>
-              </a>
-            </div>
-          </div>
-        </section>
+     
+      <TopBar />       
         <div className="container">
         <div className="row">
         {/* {projects.map((project) => ( */}
           {/* // <ProjectDetails key={project.id} projects={projects} /> */}
-          <ProjectDetails projects={projects} />
-
-        {/* ))} */}
-        
-          {/* {projects.map(project => (
-            <div key={project.id} className="col-lg-4 col-md-6 mb-4">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{project.title}</h5>
-                  <h6 className="card-subtitle mb-2 text-muted">
-                    {project.category}
-                  </h6>
-                  <p className="card-text">{project.description}</p>
-                  <Link href={`/projects/${project.id}`}>
-                  <button className="btn btn-primary">Details</button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ))} */}
+          {/* <ProjectDetails projects={projects} />     */}
         </div>
-        <div>
-        <button onClick={handleGoBack}>Go Back</button>
       </div>
-      </div>
-      
       {/* <div>
         {projects.map(project => (
           <div
@@ -184,6 +79,8 @@ export default function Home(props) {
       <br />
       <br />
       {/* <Portfolio /> */}
+            <ProjectDetails projects={projects} />   
+
 
       {/* <ProjectPage /> */}
       <br />
@@ -209,7 +106,7 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), './pages/data.json');
+  const filePath = path.join(process.cwd(), './public/data.json');
   const jsonData = await fsPromises.readFile(filePath);
   const data = JSON.parse(jsonData);
 

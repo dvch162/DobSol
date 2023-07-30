@@ -1,20 +1,11 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useState } from 'react';
+
 
 export default function Form() {
-    // useEffect(() => {
-    //   const forms = document.querySelectorAll('form.gform');
-    //   forms.forEach((form) => {
-    //     form.addEventListener('submit', handleFormSubmit);
-    //   });
-  
-    //   return () => {
-    //     forms.forEach((form) => {
-    //       form.removeEventListener('submit', handleFormSubmit);
-    //     });
-    //   };
-    // }, []);
-  
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+   
     function getFormData(form) {
         const elements = form.elements;
         let honeypot;
@@ -68,45 +59,46 @@ export default function Form() {
       event.preventDefault();
       const form = event.target;
       const formData = getFormData(form);
-      const data = formData.data;
+      const data = new URLSearchParams(formData.data);
+      // const data = formData.data;
   
       if (formData.honeypot) {
         return false;
       }
   
-      disableAllButtons(form);
+      setSubmitting(true);
+
+      // disableAllButtons(form);
   
       try {
-        const response = await fetch(form.action, {
+        const response = await fetch('/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
-          body: new URLSearchParams(data).toString(),
+          body: data.toString(),
+          // body: new URLSearchParams(data).toString(),
         });
   
         if (response.ok) {
+          setSubmitted(true);
           form.reset();
-          const formElements = form.querySelector('.form-elements');
-          if (formElements) {
-            formElements.style.display = 'none';
-          }
-          const thankYouMessage = form.querySelector('.thankyou_message');
-          if (thankYouMessage) {
-            thankYouMessage.style.display = 'block';
-          }
+        } else {
+          console.error('Error submitting form:', response.statusText);
         }
       } catch (error) {
-        console.error(error);
+        console.error('Error submitting form:', error);
+      } finally {
+        setSubmitting(false);
       }
     }
   
-    function disableAllButtons(form) {
-        const buttons = form.querySelectorAll('button');
-        buttons.forEach((button) => {
-          button.disabled = true;
-        });
-      }
+    // function disableAllButtons(form) {
+    //     const buttons = form.querySelectorAll('button');
+    //     buttons.forEach((button) => {
+    //       button.disabled = true;
+    //     });
+    //   }
       // Implementation of disableAllButtons 
 
 
@@ -130,7 +122,7 @@ return (
     color: '#0c2e8a',
     paddingLeft: '35px',
     paddingTop: '59px', 
-    paddingRight: '35px'}} >Contact us</h1>
+    paddingRight: '35px'}} >Let's discuss your project</h1>
     <div
       className="form-card"
       style={{
@@ -145,7 +137,7 @@ return (
 
       }}
     >
-      <form className="gform">
+      <form className="gform" onSubmit={handleFormSubmit}>
         <div>
           <label htmlFor="name" style={{ display: 'none' }}>
             Name:
@@ -243,7 +235,7 @@ return (
             name="message"
             rows="4"
             placeholder="Message"
-            required
+            // required
             style={{
               width: '100%',
               height: '60px',
@@ -259,14 +251,22 @@ return (
 
 
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <button type="submit" style={{ height: '20px', width: '170px', 
+          <button type="submit" disabled={submitting}
+          style={{ height: '20px', width: '170px', 
           backgroundColor: '#0c2e8a', border: 'none', padding: '15px', 
           borderRadius: '10px',
       textAlign: 'center', display: 'flex',
-      alignItems: 'center', justifyContent: 'center' }}>Submit</button>
+      alignItems: 'center', justifyContent: 'center' }}>
+        {submitting ? 'Submitting...' : 'Submit'}
+        </button>
        </div>
        </form>
     </div>
+    {submitted && (
+        <div className="thankyou_message" style={{ display: 'block', textAlign: 'center' }}>
+          Thank you for your submission!
+        </div>
+      )}
     </div>
  );
 }

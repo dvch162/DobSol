@@ -1,4 +1,30 @@
-:root {
+/* styles/global.css */
+/* styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Add your custom styles below or in separate CSS files */
+
+
+/* Normalize CSS */
+/* Include a normalize.css library or copy and paste a suitable version here */
+
+/* Global styles */
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-color: #f5f5f5; */
+  background-color: #fff;
+}
+
+/* Other global styles */
+/* Add any other global styles you want to apply to your entire application */
+
+
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -104,4 +130,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
